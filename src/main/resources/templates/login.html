@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/exstras/spring-security">
+<head th:replace="fragments/commons::head">
+</head>
+<body>
+<div class="container-fluid bg">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <!--            form start-->
+            <form class="form-container"
+                  th:action="@{/users/login}"
+                  th:method="post">
+                <h1 class="titles-form">Вход</h1>
+                <div class="form-group">
+                    <label class="titles-form" for="username">Потребителско име</label>
+                    <input type="text" class="form-control" name="username" id="username">
+                    <small id="usernameHelp" class="form-text"></small>
+                </div>
+                <div class="form-group">
+                    <label class="titles-form" for="exampleInputPassword1">Парола</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                </div>
+                <button type="submit" class="btn btn-success ">Влез</button>
+            </form>
+            <!--            form end-->
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    </div>
+</div>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

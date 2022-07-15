@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/exstras/spring-security">
+<head th:replace="fragments/commons::head">
+</head>
+
+<body>
+<header th:replace="fragments/commons::nav">
+</header>
+<main>
+    <h5 class="text-center text-white mt-5">
+        Добре дошъл,
+        <span
+                sec:authorize="isAuthenticated()"
+                th:text="${#authentication.principal.fullName}">
+        </span>
+        <span  sec:authorize="!isAuthenticated()">
+            Анонимен
+        </span>
+    </h5>
+    <div class="card-group">
+        <div class="card">
+            <img src="/images/щампован3.jpg" class="card-img-top" alt="Щампован бетон">
+            <div class="card-body">
+                <h1 class="card-title">Щампован бетон</h1>
+                <p class="card-text">Щампован бетон – има атрактивен вид, може да се образува в различни форми,голяма
+                    цветова гама и модели.</p>
+            </div>
+            <a th:href="@{/users/login}" class="btn">Виж повече</a>
+        </div>
+        <div class="card">
+            <img src="/images/шлайфан.jpg" class="card-img-top" alt="Шлайфан бетон">
+            <div class="card-body">
+                <h5 class="card-title">Шлайфан бетон</h5>
+                <p class="card-text">Шлайфан бетон за места с тежък интензивен трафик.Притежават висока
+                    износоустойчивост, устойчивост на удари и лесно се поддържат.</p>
+            </div>
+            <a th:href="@{/users/login}" class="btn">Виж повече</a>
+        </div>
+        <div class="card">
+            <img src="/images/рес2.jpg" class="card-img-top" alt="Ресан бетон">
+            <div class="card-body">
+                <h5 class="card-title">Ресан бетон</h5>
+                <p class="card-text">Този вид бетон е предимно за подземни паркинги с голям наклон и за открити
+                    рампи.</p>
+            </div>
+            <a th:href="@{/users/login}" class="btn">Виж повече</a>
+        </div>
+    </div>
+
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+
+</body>
+</html>
