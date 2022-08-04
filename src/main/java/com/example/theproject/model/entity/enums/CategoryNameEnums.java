@@ -1,5 +1,5 @@
 package com.example.theproject.model.entity.enums;
 
 public enum CategoryNameEnums {
-    ЩАМПОВАН, ШЛАЙФАН, РЕСАН, ДРУГИ
+    ЩАМПОВАН_БЕТОН, ШЛАЙФАН_БЕТОН, РЕСАН_БЕТОН, ДРУГИ
 }

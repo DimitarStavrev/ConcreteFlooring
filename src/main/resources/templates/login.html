@@ -5,6 +5,7 @@
 <head th:replace="fragments/commons::head">
 </head>
 <body>
+
 <div class="container-fluid bg">
     <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
@@ -16,14 +17,17 @@
                 <h1 class="titles-form">Вход</h1>
                 <div class="form-group">
                     <label class="titles-form" for="username">Потребителско име</label>
-                    <input type="text" class="form-control" name="username" id="username">
+                    <input th:value="${username}" type="text" class="form-control" name="username" id="username">
                     <small id="usernameHelp" class="form-text"></small>
                 </div>
                 <div class="form-group">
                     <label class="titles-form" for="exampleInputPassword1">Парола</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                 </div>
-                <button type="submit" class="btn btn-success ">Влез</button>
+                <p th:if="${bad_credentials}" class="errors alert alert-danger">
+                    Невалидно потребителско име или парола.
+                </p>
+                <button type="submit" class="btn btn-success">Влез</button>
             </form>
             <!--            form end-->
         </div>

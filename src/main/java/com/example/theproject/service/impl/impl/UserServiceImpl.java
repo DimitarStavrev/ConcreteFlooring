@@ -1,12 +1,11 @@
-package com.example.theproject.service.impl;
+package com.example.theproject.service.impl.impl;
 
-import com.example.theproject.model.entity.Role;
 import com.example.theproject.model.entity.User;
 import com.example.theproject.model.entity.enums.RoleNameEnums;
 import com.example.theproject.model.service.UserServiceModel;
 import com.example.theproject.repository.RoleRepository;
 import com.example.theproject.repository.UserRepository;
-import com.example.theproject.service.UserService;
+import com.example.theproject.service.impl.UserService;
 import org.modelmapper.ModelMapper;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,8 +16,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Set;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -41,15 +40,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void registerUser(UserServiceModel userServiceModel) {
 
-        Role role = new Role();
-        role.setRole(RoleNameEnums.USER);
-
         User user = modelMapper.map(userServiceModel, User.class);
         user.setPassword(passwordEncoder.encode(userServiceModel.getPassword()));
-        user.setRoles(Set.of(role));
-
-//        if (userRepository.count() == 0){
-//        }
+        user.setRoles(List.of(roleRepository.findByRole(RoleNameEnums.USER)));
 
         userRepository.save(user);
 
@@ -82,29 +75,41 @@ public class UserServiceImpl implements UserService {
                 .orElse(null);
     }
 
-    @Override
-    public void initRole() {
 
-        if (roleRepository.count() != 0) {
+    @Override
+    public void initAdmin() {
+
+
+        User user = new User();
+        user.setUsername("dimitar");
+        user.setPassword(passwordEncoder.encode("123"));
+        user.setFullName("Dimitar Stavrev");
+        user.setAge(33);
+        user.setEmail("stavrev@abv.com");
+        user.setRoles(List.of(roleRepository.findByRole(RoleNameEnums.ADMINISTRATOR)));
+
+        if (userRepository.findByUsername(user.getUsername()).isPresent()){
             return;
         }
-
-        Arrays.stream(RoleNameEnums.values())
-                .forEach(roleName -> {
-                    Role role = new Role();
-                    role.setRole(roleName);
-
-                    roleRepository.save(role);
-                });
-
-//        Role roleAdmin = new Role();
-//        roleAdmin.setRole(RoleNameEnums.ADMINISTRATOR);
-//
-//        Role roleUser = new Role();
-//        roleUser.setRole(RoleNameEnums.USER);
-//
-//        roleRepository.save(roleAdmin);
-//        roleRepository.save(roleUser);
-
+        userRepository.save(user);
     }
+
+    @Override
+    public void initUser() {
+
+        User user = new User();
+        user.setUsername("stavrev");
+        user.setPassword(passwordEncoder.encode("123"));
+        user.setFullName("Georgi Georgiev");
+        user.setAge(27);
+        user.setEmail("georgi@gmail.bg");
+        user.setRoles(List.of(roleRepository.findByRole(RoleNameEnums.USER)));
+
+        if (userRepository.findByUsername(user.getUsername()).isPresent()){
+            return;
+        }
+        userRepository.save(user);
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.theproject.service;
+package com.example.theproject.service.impl;
 
 import com.example.theproject.model.service.UserServiceModel;
 
@@ -10,5 +10,7 @@ public interface UserService {
 
     UserServiceModel isEmailExists(String email);
 
-    void initRole();
+    void initAdmin();
+
+    void initUser();
 }

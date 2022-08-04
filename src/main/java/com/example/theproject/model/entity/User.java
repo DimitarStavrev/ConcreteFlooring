@@ -1,6 +1,8 @@
 package com.example.theproject.model.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,7 +14,7 @@ public class User extends BaseEntity{
     private String fullName;
     private String email;
     private Integer age;
-    private Set<Role> roles;
+    private List<Role> roles = new ArrayList<>();
 
     public User() {
     }
@@ -54,12 +56,12 @@ public class User extends BaseEntity{
     }
 
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    public Set<Role> getRoles() {
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

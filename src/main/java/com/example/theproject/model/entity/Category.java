@@ -3,6 +3,8 @@ package com.example.theproject.model.entity;
 import com.example.theproject.model.entity.enums.CategoryNameEnums;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +16,7 @@ public class Category extends BaseEntity{
     public Category() {
     }
 
+   @Enumerated(EnumType.STRING)
     public CategoryNameEnums getName() {
         return name;
     }

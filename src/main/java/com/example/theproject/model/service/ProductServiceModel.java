@@ -1,9 +1,7 @@
 package com.example.theproject.model.service;
 
-import com.example.theproject.model.entity.Category;
 import com.example.theproject.model.entity.Picture;
 import com.example.theproject.model.entity.User;
-import com.example.theproject.model.entity.enums.CategoryNameEnums;
 
 import java.math.BigDecimal;
 import java.util.Set;
@@ -15,7 +13,6 @@ public class ProductServiceModel {
     private String description;
     private BigDecimal price;
     private User user;
-    private CategoryNameEnums category;
     private Set<Picture> pictures;
 
     public ProductServiceModel() {
@@ -67,13 +64,5 @@ public class ProductServiceModel {
 
     public void setPictures(Set<Picture> pictures) {
         this.pictures = pictures;
-    }
-
-    public CategoryNameEnums getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryNameEnums category) {
-        this.category = category;
     }
 }

@@ -12,6 +12,7 @@ public class Picture extends BaseEntity{
     private String title;
     private String url;
     private Product product;
+    private OurWork ourWork;
 
     public Picture() {
     }
@@ -41,5 +42,14 @@ public class Picture extends BaseEntity{
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    @ManyToOne
+    public OurWork getOurWork() {
+        return ourWork;
+    }
+
+    public void setOurWork(OurWork ourWork) {
+        this.ourWork = ourWork;
     }
 }

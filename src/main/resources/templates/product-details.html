@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/exstras/spring-security" >
+      xmlns:sec="http://www.thymeleaf.org/exstras/spring-security">
 <head th:replace="fragments/commons::head">
 </head>
+
 <body>
 <header th:replace="fragments/commons::nav">
 </header>
 
+<div class="small-container single-product">
+    <div th:object="${product}" class="row product-details-row">
+        <div class="col-2 product">
+            <img class="small-img" th:each="p : *{pictures}" th:src="${p.url}"
+                 id="ProductImg">
+            <div class="small-img-row">
+                <div class="small-img-col">
+                    <img class="small-images" th:each="p : *{pictures}" th:src="${p.url}" width="100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <h2 class="pr-name" th:text="*{name}">Щампован бетон</h2>
+            <h4 class="pr-price" th:text="*{price}">29.99лв</h4>
+            <input type="number" value="1">
+            <a href="" class="btn btn-secondary">Добави</a>
+            <h3 class="pr-def">Описание на продукта<i class="fa fa-indent"></i>
+            </h3>
+            <br>
+            <p class="pr-desc" th:text="*{description}"></p>
+
+        </div>
+    </div>
+</div>
+
+<!--<script>-->
+<!--    var ProductImg = document.getElementById("ProductImg");-->
+<!--    var SmallImg = Document.getElementsByClassName("small-img");-->
+
+<!--    SmallImg[0].onclick = function (){-->
+<!--        ProductImg.src = SmallImg[0].src;-->
+<!--    }-->
+<!--    SmallImg[1].onclick = function (){-->
+<!--        ProductImg.src = SmallImg[1].src;-->
+<!--    }-->
+<!--    SmallImg[2].onclick = function (){-->
+<!--        ProductImg.src = SmallImg[2].src;-->
+<!--    }-->
+<!--    SmallImg[3].onclick = function (){-->
+<!--        ProductImg.src = SmallImg[3].src;-->
+<!--    }-->
+<!--    SmallImg[4].onclick = function (){-->
+<!--        ProductImg.src = SmallImg[4].src;-->
+<!--    }-->
+<!--</script>-->
+<footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

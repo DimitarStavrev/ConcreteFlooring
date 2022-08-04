@@ -12,7 +12,6 @@ public class Product extends BaseEntity{
     private String description;
     private BigDecimal price;
     private User user;
-    private Category category;
     private Set<Picture> pictures;
 
     public Product() {
@@ -26,6 +25,7 @@ public class Product extends BaseEntity{
         this.name = name;
     }
 
+    @Column(columnDefinition = "LONGTEXT")
     public String getDescription() {
         return description;
     }
@@ -58,14 +58,5 @@ public class Product extends BaseEntity{
 
     public void setPictures(Set<Picture> pictures) {
         this.pictures = pictures;
-    }
-
-    @ManyToOne
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.theproject.service.impl;
+package com.example.theproject.service.impl.impl;
 
 import com.example.theproject.model.entity.Role;
 import com.example.theproject.model.entity.User;
@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 
 
 public class ProjectUserDetailsService implements UserDetailsService {

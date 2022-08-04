@@ -4,26 +4,26 @@
       xmlns:sec="http://www.thymeleaf.org/exstras/spring-security">
 <head th:replace="fragments/commons::head">
 </head>
-<body>
+<body class="products">
 <header th:replace="fragments/commons::nav">
 </header>
 
-<div class="card mb-3">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-</div>
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-    <img src="..." class="card-img-bottom" alt="...">
-</div>
+<h5 th:replace="fragments/commons::congrats"></h5>
 
+<div class="container products-container">
+    <div class="row products-row">
+            <div class="col-sm-6 col-lg-4" th:each="p : ${products}" th:object="${p}">
+                <img th:src="*{pictureUrl}" class="product-img-top" alt="Image title">
+                <div class="card-body">
+                    <h1 th:class="product-title" th:text="*{name}" class="product-title"></h1>
+                    <p th:text="*{description}" class="product-text"></p>
+                    <p th:text="*{price}" class="product-price"></p>
+                </div>
+                <a th:href="@{/products/details/{id}(id = *{id})}" class="btn btn-secondary">Виж повече</a>
+            </div>
+    </div>
+</div>
+</div>
+<footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>
