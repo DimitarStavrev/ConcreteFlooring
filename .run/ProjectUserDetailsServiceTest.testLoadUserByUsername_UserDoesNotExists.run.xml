@@ -1,0 +1,18 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TheProjectApplicationTests" type="JUnit" factoryName="JUnit">
+    <module name="TheProject" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.example.theproject.service.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="com.example.theproject" />
+    <option name="MAIN_CLASS_NAME" value="com.example.theproject.TheProjectApplicationTests" />
+    <option name="METHOD_NAME" value="testLoadUserByUsername_UserDoesNotExists" />
+    <option name="TEST_OBJECT" value="class" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/exstras/spring-security">
+<head th:replace="fragments/commons::head">
+</head>
+
+<body>
+<header th:replace="fragments/commons::nav">
+</header>
+
+<div class="container ow-details-container">
+    <div th:object="${ourWork}" class="heading">
+        <h3 class="ow-name" th:text="*{name}"></h3>
+        <p class="ow-description" th:text="*{description}"></p>
+        <div class="box">
+                <div class="dream">
+                    <img class="img ow-img" th:each="p : *{pictures}" th:src="${p.url}" width="100%">
+                </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

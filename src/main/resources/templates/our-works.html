@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/exstras/spring-security">
+<head th:replace="fragments/commons::head">
+</head>
+
+<body class="our-works">
+<header th:replace="fragments/commons::nav">
+</header>
+<main>
+    <h5 th:replace="fragments/commons::congrats"></h5>
+<!--    <div class="container ow-container">-->
+        <div class="row ow-card">
+            <div class="card ow-main-card" th:each="o : ${ourWorks}" th:object="${o}">
+                <img th:src="*{pictureUrl}" class="card-img-top" alt="Image title">
+                <div class="card-body">
+                    <h1 th:text="*{name}" class="card-title"></h1>
+                    <p th:text="*{description}" class="card-text"></p>
+                </div>
+                <a th:href="@{/our-works/details/{id}(id = *{id})}" class="btn btn-secondary">Виж повече</a>            </div>
+        </div>
+<!--    </div>-->
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>
