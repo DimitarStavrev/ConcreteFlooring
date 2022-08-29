@@ -20,7 +20,8 @@
                     <input th:field="*{username}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputUsername" aria-describedby="usernameHelpInline">
                     <small id="usernameError"
-                           class="invalid-feedback bg-danger text-light rounded">Потребителското име трябва да съдържа 3 или повече символа.</small>
+                           class="invalid-feedback bg-danger text-light rounded">Потребителското име трябва да съдържа 3
+                        или повече символа.</small>
                 </div>
             </div>
             <div class="form-group">
@@ -31,7 +32,8 @@
                     <input th:field="*{fullName}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputFullName" aria-describedby="fullNameHelpInline">
                     <small id="fullNameError"
-                           class="invalid-feedback bg-danger text-light rounded">Името и фамилията трябва да съдържат 5 или повече символа.</small>
+                           class="invalid-feedback bg-danger text-light rounded">Името и фамилията трябва да съдържат 5
+                        или повече символа.</small>
                 </div>
             </div>
             <div class="form-group">
@@ -40,7 +42,8 @@
                 </div>
                 <div class="col-auto">
                     <input th:field="*{email}" th:errorclass="is-invalid"
-                           type="text" class="form-control" id="inputEmail" aria-describedby="emailHelpInline">
+                           type="text" class="form-control" id="inputEmail" aria-describedby="emailHelpInline"
+                           required min="3" >
                     <small id="emailError"
                            class="invalid-feedback bg-danger text-light rounded">Емейла трябва да съдържат @.</small>
                 </div>
@@ -53,7 +56,8 @@
                     <input th:field="*{age}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputAge" aria-describedby="ageHelpInline">
                     <small id="ageError"
-                           class="invalid-feedback bg-danger text-light rounded">Възрастта не може да бъде отрицателно число.</small>
+                           class="invalid-feedback bg-danger text-light rounded">Възрастта не може да бъде отрицателно
+                        число.</small>
                 </div>
             </div>
             <div class="col-auto">

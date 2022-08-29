@@ -1,6 +1,7 @@
 package com.example.theproject.model.binding;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
@@ -16,7 +17,8 @@ public class UserRegisterBindingModel {
     public UserRegisterBindingModel() {
     }
 
-    @Size(min = 3)
+    //TODO: implement in html validation for max size
+    @Size(min = 3, max = 20)
     public String getUsername() {
         return username;
     }
@@ -25,7 +27,7 @@ public class UserRegisterBindingModel {
         this.username = username;
     }
 
-    @Size(min = 5)
+    @Size(min = 5, max = 30)
     public String getFullName() {
         return fullName;
     }
@@ -43,6 +45,7 @@ public class UserRegisterBindingModel {
         this.email = email;
     }
 
+    //TODO: validation max years old
     @Positive
     public Integer getAge() {
         return age;
@@ -52,7 +55,7 @@ public class UserRegisterBindingModel {
         this.age = age;
     }
 
-    @Size(min = 3)
+    @Size(min = 3, max = 30)
     public String getPassword() {
         return password;
     }
@@ -61,7 +64,7 @@ public class UserRegisterBindingModel {
         this.password = password;
     }
 
-    @Size(min = 3)
+    @Size(min = 3, max = 30)
     public String getConfirmPassword() {
         return confirmPassword;
     }

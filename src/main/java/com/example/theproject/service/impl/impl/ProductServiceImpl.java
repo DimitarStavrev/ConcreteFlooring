@@ -10,9 +10,11 @@ import com.example.theproject.repository.ProductRepository;
 import com.example.theproject.repository.UserRepository;
 import com.example.theproject.service.impl.ProductService;
 import org.modelmapper.ModelMapper;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,5 +70,13 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow(() -> new ObjectNotFoundException(id));
     }
 
+    @Scheduled(cron = "0 1 1 * * *")
+    public void productPriceIncrease() {
+        for (Product product : productRepository
+                .findAll()) {
+            product.setPrice(product.getPrice().add(BigDecimal.valueOf(0.05)));
 
+            productRepository.save(product);
+        }
+    }
 }
