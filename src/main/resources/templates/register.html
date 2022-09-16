@@ -11,57 +11,61 @@
     <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
-            <h1 class="titles-form">Регистрация</h1>
+            <h1 class="titles-form" th:text="#{register_title_name}"></h1>
             <div class="form-group">
                 <div class="col-auto">
-                    <label for="inputUsername" class="col-form-label ">Потребителско име</label>
+                    <label for="inputUsername" class="col-form-label" th:text="#{login_username}"></label>
                 </div>
                 <div class="col-auto">
                     <input th:field="*{username}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputUsername" aria-describedby="usernameHelpInline">
                     <small id="usernameError"
-                           class="invalid-feedback bg-danger text-light rounded">Потребителското име трябва да съдържа 3
-                        или повече символа.</small>
+                           class="invalid-feedback bg-danger text-light rounded" th:text="#{register_username_error}">
+                    </small>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-auto">
-                    <label for="inputFullName" class="col-form-label ">Име и фамилия</label>
+                    <label for="inputFullName" class="col-form-label " th:text="#{register_name_lastname}"></label>
                 </div>
                 <div class="col-auto">
                     <input th:field="*{fullName}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputFullName" aria-describedby="fullNameHelpInline">
                     <small id="fullNameError"
-                           class="invalid-feedback bg-danger text-light rounded">Името и фамилията трябва да съдържат 5
-                        или повече символа.</small>
+                           class="invalid-feedback bg-danger text-light rounded"
+                           th:text="#{register_name_lastname_error}">
+
+                    </small>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-auto">
-                    <label for="inputEmail" class="col-form-label ">Емейл</label>
+                    <label for="inputEmail" class="col-form-label " th:text="#{register_email}"></label>
                 </div>
                 <div class="col-auto">
                     <input th:field="*{email}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputEmail" aria-describedby="emailHelpInline"
-                           required min="3" >
+                           required min="3">
                     <small id="emailError"
-                           class="invalid-feedback bg-danger text-light rounded">Емейла трябва да съдържат @.</small>
+                           class="invalid-feedback bg-danger text-light rounded"
+                           th:text="#{register_email_error}"></small>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-auto">
-                    <label for="inputAge" class="col-form-label ">Възраст</label>
+                    <label for="inputAge" class="col-form-label " th:text="#{register_age}"></label>
                 </div>
                 <div class="col-auto">
                     <input th:field="*{age}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputAge" aria-describedby="ageHelpInline">
                     <small id="ageError"
-                           class="invalid-feedback bg-danger text-light rounded">Възрастта не може да бъде отрицателно
-                        число.</small>
+                           class="invalid-feedback bg-danger text-light rounded" th:text="#{register_age_error}">
+
+                    </small>
                 </div>
             </div>
             <div class="col-auto">
-                <label for="inputPassword" class="col-form-label ">Парола</label>
+                <label for="inputPassword" class="col-form-label " th:text="#{login_password}"></label>
             </div>
             <div class="col-auto">
                 <input th:field="*{password}" th:errorclass="is-invalid"
@@ -70,12 +74,13 @@
                        class="form-control"
                        aria-describedby="passwordHelpInline">
                 <small id="passwordError"
-                       class="invalid-feedback form-text bg-danger text-light rounded">
-                    Паролата трябва да съдържа 3 или повече символа.
+                       class="invalid-feedback form-text bg-danger text-light rounded"
+                       th:text="#{register_password_error}">
                 </small>
             </div>
             <div class="col-auto">
-                <label for="inputConfirmPassword" class="col-form-label ">Потвърди паролата</label>
+                <label for="inputConfirmPassword" class="col-form-label "
+                       th:text="#{register_confirm_password}"></label>
             </div>
             <div class="col-auto">
                 <input th:field="*{confirmPassword}" th:errorclass="is-invalid"
@@ -84,11 +89,12 @@
                        class="form-control"
                        aria-describedby="confirmPasswordHelpInline">
                 <small id="confirmPasswordError"
-                       class="invalid-feedback form-text bg-danger text-light rounded">
-                    Паролата трябва да съдържа 3 или повече символа.
+                       class="invalid-feedback form-text bg-danger text-light rounded"
+                       th:text="#{register_password_error}">
+
                 </small>
             </div>
-            <button type="submit" class="btn btn-success ">Потвърждение</button>
+            <button type="submit" class="btn btn-success " th:text="#{register_btn}"></button>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
     </div>

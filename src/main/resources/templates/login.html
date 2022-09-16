@@ -14,20 +14,18 @@
             <form class="form-container"
                   th:action="@{/users/login}"
                   th:method="post">
-                <h1 class="titles-form">Вход</h1>
+                <h1 class="titles-form" th:text="#{login_title_name}"></h1>
                 <div class="form-group">
-                    <label class="titles-form" for="username">Потребителско име</label>
+                    <label class="titles-form" for="username"><a th:text="#{login_username}"></a></label>
                     <input th:value="${username}" type="text" class="form-control" name="username" id="username">
                     <small id="usernameHelp" class="form-text"></small>
                 </div>
                 <div class="form-group">
-                    <label class="titles-form" for="exampleInputPassword1">Парола</label>
+                    <label class="titles-form" for="exampleInputPassword1" th:text="#{login_password}"></label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                 </div>
-                <p th:if="${bad_credentials}" class="errors alert alert-danger">
-                    Невалидно потребителско име или парола.
-                </p>
-                <button type="submit" class="btn btn-success">Влез</button>
+                <p th:if="${bad_credentials}" class="errors alert alert-danger" th:text="#{login_error}"></p>
+                <button type="submit" class="btn btn-success" th:text="#{login_btn}"></button>
             </form>
             <!--            form end-->
         </div>

@@ -38,49 +38,37 @@
         </a>
     </div>
     <h1 class="card-main-title">
-        Ние изработваме всякакъв вид бетонови настилки, както и имаме всички нужни продукти за това.
+       <a th:text="#{card_main_title}"></a>
     </h1>
     <div class="card-group">
         <div class="card">
             <img src="/images/щампован3.jpg" class="card-img-top" alt="Щампован бетон">
             <div class="card-body">
-                <h1 class="card-title">Щампован бетон</h1>
-                <p class="card-text">Щампован бетон – има атрактивен вид, може да се образува в различни форми,голяма
-                    цветова гама и модели.</p>
+                <h1 class="card-title"> <a th:text="#{card_title_stamped}"></a> </h1>
+                <p class="card-text"> <a th:text="#{card_text_stamped}"></a></p>
             </div>
-            <th:block sec:authorize="!isAuthenticated()">
-            <a  th:href="@{/users/login}" class="btn">Виж повече</a>
-            </th:block>
             <th:block sec:authorize="isAuthenticated()">
-                <a  th:href="@{/our-works/details/1}" class="btn">Виж повече</a>
+                <a  th:href="@{/our-works/details/1}" class="btn" th:text="#{card_btn}"></a>
             </th:block>
         </div>
         <div class="card">
             <img src="/images/шлайфан.jpg" class="card-img-top" alt="Шлайфан бетон">
             <div class="card-body">
-                <h5 class="card-title">Шлайфан бетон</h5>
-                <p class="card-text">Шлайфан бетон за места с тежък интензивен трафик.Притежават висока
-                    износоустойчивост, устойчивост на удари и лесно се поддържат.</p>
+                <h5 class="card-title"><a th:text="#{card_title_polished}"></a></h5>
+                <p class="card-text"><a th:text="#{card_text_polished}"></a></p>
             </div>
-            <th:block sec:authorize="!isAuthenticated()">
-                <a  th:href="@{/users/login}" class="btn">Виж повече</a>
-            </th:block>
             <th:block sec:authorize="isAuthenticated()">
-                <a  th:href="@{/our-works/details/2}" class="btn">Виж повече</a>
+                <a  th:href="@{/our-works/details/2}" class="btn" th:text="#{card_btn}"></a>
             </th:block>
         </div>
         <div class="card">
             <img src="/images/рес2.jpg" class="card-img-top" alt="Ресан бетон">
             <div class="card-body">
-                <h5 class="card-title">Ресан бетон</h5>
-                <p class="card-text">Този вид бетон е предимно за подземни паркинги с голям наклон и за открити
-                    рампи.</p>
+                <h5 class="card-title"><a th:text="#{card_title_rough}"></a></h5>
+                <p class="card-text"><a th:text="#{card_text_rough}"></a></p>
             </div>
-            <th:block sec:authorize="!isAuthenticated()">
-                <a  th:href="@{/users/login}" class="btn">Виж повече</a>
-            </th:block>
             <th:block sec:authorize="isAuthenticated()">
-                <a  th:href="@{/our-works/details/3}" class="btn">Виж повече</a>
+                <a  th:href="@{/our-works/details/3}" class="btn" th:text="#{card_btn}"></a>
             </th:block>
         </div>
     </div>

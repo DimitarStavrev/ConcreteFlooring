@@ -23,32 +23,35 @@
     <section class="navigation">
         <nav class="row">
             <ul>
-                <li><a th:text="#{navbar_home}" th:href="@{/}">НАЧАЛО</a></li>
+                <li><a th:text="#{navbar_home}" th:href="@{/}"></a></li>
                 <th:block sec:authorize="isAuthenticated()">
-                    <li><a th:text="#{navbar_products}" th:href="@{/products}">ПРОДУКТИ</a></li>
-                    <li><a th:text="#{navbar_our-works}" th:href="@{/our-works}">УСЛУГИ</a></li>
+                    <li><a th:text="#{navbar_products}" th:href="@{/products}"></a></li>
+                    <li><a th:text="#{navbar_our-works}" th:href="@{/our-works}"></a></li>
                 </th:block>
-                <li><a th:text="#{navbar_about}" th:href="@{/about}">ЗА НАС</a></li>
-                <li><a th:text="#{navbar_contacts}" th:href="@{/contacts}">КОНТАКТИ</a></li>
+                <li><a th:text="#{navbar_about}" th:href="@{/about}"></a></li>
+                <li><a th:text="#{navbar_contacts}" th:href="@{/contacts}"></a></li>
                 <li sec:authorize="hasRole('ADMINISTRATOR')">
-                    <a th:text="#{navbar_add}" href="">ДОБАВИ</a>
+                    <a th:text="#{navbar_add}" href=""></a>
                     <ul>
-                        <li class="navbar-nav dropdown"><a th:text="#{navbar_products}" th:href="@{/products/add}">ПРОДУКТ</a>
+                        <li class="navbar-nav dropdown"><a th:text="#{navbar_products}" th:href="@{/products/add}"></a>
                         </li>
-                        <li class="navbar-nav dropdown"><a th:text="#{navbar_our-works}" th:href="@{/our-works/add}">УСЛУГА</a>
+                        <li class="navbar-nav dropdown"><a th:text="#{navbar_our-works}" th:href="@{/our-works/add}"></a>
                         </li>
                     </ul>
                 </li>
                 <li class="login">
                     <div>
                         <th:block sec:authorize="!isAuthenticated()">
-                            <a th:text="#{navbar_login}" th:href="@{/users/login}">ВХОД</a>
-                            <a th:text="#{navbar_register}" th:href="@{/users/register}">РЕГИСТРАЦИЯ</a>
+                            <a th:text="#{navbar_login}" th:href="@{/users/login}"></a>
+                            <a th:text="#{navbar_register}" th:href="@{/users/register}"></a>
                         </th:block>
-                        <form class="btn-logout" sec:authorize="isAuthenticated()" th:action="@{/users/logout}"
-                              th:method="post">
-                            <button type="submit">ИЗХОД</button>
-                        </form>
+                        <th:block sec:authorize="isAuthenticated()">
+                            <form class="btn-logout"
+                                  th:action="@{/users/logout}"
+                                  th:method="post">
+                                <button th:text="#{navbar_logout}" type="submit"></button>
+                            </form>
+                        </th:block>
                     </div>
                 </li>
                 <li>
@@ -70,15 +73,15 @@
 </header>
 
 <h5 th:fragment="congrats" class="text-center text-white mt-5">
-    Добре дошъл,
+    <a th:text="#{congrats}"></a>
     <span
             sec:authorize="isAuthenticated()"
             th:text="${#authentication.principal.fullName}">
         </span>
 
-    <span sec:authorize="!isAuthenticated()">
-            Гост
-        </span>
+    <th:block sec:authorize="!isAuthenticated()">
+        <a th:text="#{congrats_name}"></a>
+    </th:block>
 
 </h5>
 

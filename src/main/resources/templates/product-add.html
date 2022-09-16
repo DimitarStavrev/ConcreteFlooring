@@ -15,44 +15,48 @@
     <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
-            <h1 class="titles-form">Добави продукт</h1>
+            <h1 class="titles-form" th:text="#{products_add_title}"></h1>
             <div class="form-group">
                 <div class="col-auto">
-                    <label for="inputName" class="col-form-label ">Име на продукта</label>
+                    <label for="inputName" class="col-form-label " th:text="#{products_add_name}"></label>
                 </div>
                 <div class="col-auto">
                     <input th:field="*{name}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputName" aria-describedby="nameHelpInline">
                     <small id="nameError"
-                           class="invalid-feedback bg-danger text-light rounded">Името на продукта трябва да съдържа 3
-                        или повече символа.</small>
+                           class="invalid-feedback bg-danger text-light rounded" th:text="#{products_add_name_error}">
+
+                    </small>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-auto">
-                    <label for="inputDescription" class="col-form-label ">Описание</label>
+                    <label for="inputDescription" class="col-form-label "
+                           th:text="#{our_works_add_description}"></label>
                 </div>
                 <div class="col-auto">
                     <input th:field="*{description}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputDescription"
                            aria-describedby="descriptionHelpInline">
                     <small id="descriptionError"
-                           class="invalid-feedback bg-danger text-light rounded">Описанието трябва да съдържат 5
-                        или повече символа.</small>
+                           class="invalid-feedback bg-danger text-light rounded"
+                           th:text="#{our_works_add_description_error}">
+
+                    </small>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-auto">
-                    <label for="inputPrice" class="col-form-label ">Цена</label>
+                    <label for="inputPrice" class="col-form-label " th:text="#{products_add_price}"></label>
                 </div>
                 <div class="col-auto">
                     <input th:field="*{price}" th:errorclass="is-invalid"
                            type="text" class="form-control" id="inputPrice" aria-describedby="priceHelpInline">
                     <small id="priceError"
-                           class="invalid-feedback bg-danger text-light rounded">Въведете коректна цена.</small>
+                           class="invalid-feedback bg-danger text-light rounded" th:text="#{products_add_price_error}"></small>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success ">Добави</button>
+            <button type="submit" class="btn btn-success " th:text="#{our_works_add_btn}"></button>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
     </div>

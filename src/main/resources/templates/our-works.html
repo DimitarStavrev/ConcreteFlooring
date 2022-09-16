@@ -15,7 +15,7 @@
             <div class="card ow-main-card" th:each="o : ${ourWorks}" th:object="${o}">
                 <img th:src="*{pictureUrl}" class="card-img-top" alt="Image title">
                 <div class="card-body">
-                    <h1 th:text="*{name}" class="card-title"></h1>
+                    <h1 data-th-text="*{name}" class="card-title"></h1>
                     <p th:text="*{description}" class="card-text"></p>
                 </div>
                 <a th:href="@{/our-works/details/{id}(id = *{id})}" class="btn btn-secondary">Виж повече</a>            </div>
